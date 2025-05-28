@@ -21,7 +21,9 @@ dart
 class MyApp extends StatelessWidget {
 
 # MyAppというクラスを定義
-# StatelessWidget＝状態を持たないウィジェット（一度作成されるとデータが変更されない静的なUIを構築）
+# StatelessWidget＝状態を持たないウィジェット 
+># （一度作成されるとデータが変更されない静的なUIを構築）
+
 dart
 
 @override
@@ -34,7 +36,8 @@ dart
 
     return MaterialApp(
 
-# MaterialAppはアプリ全体の設定を管理するウィジェット（テーマ・タイトル・etc）
+# MaterialAppはアプリ全体の設定を管理するウィジェット
+># （テーマ・タイトル・etc）
 
 dart
 
