@@ -1,7 +1,8 @@
 # 課題基礎
 import 'package:flutter/material.dart';\  
 
-# パッケージをインポート
+# Flutterのmaterialパッケージをインポート
+
 
 dart
 
@@ -13,16 +14,16 @@ void main() {
   runApp(MyApp());
 
 }
-
-# 引数にWidgetを渡す
-# MyAppというクラスのオブジェクトを渡す
+# dartのエントリーポイントであるmain()関数
+> 引数にWidgetを渡す
+>> MyAppというクラスのオブジェクトを渡す
 dart
 
 class MyApp extends StatelessWidget {
 
 # MyAppというクラスを定義
-# StatelessWidget＝状態を持たないウィジェット 
-># （一度作成されるとデータが変更されない静的なUIを構築）
+>StatelessWidget＝状態を持たないウィジェット 
+>> (一度作成されるとデータが変更されない静的なUIを構築)
 
 dart
 
@@ -31,13 +32,14 @@ dart
   Widget build(BuildContext context) {
 
 # UIを定義
+>contextはビルド中のウィジェットの場所を示す情報を含むオブジェクト
 
 dart
 
     return MaterialApp(
 
 # MaterialAppはアプリ全体の設定を管理するウィジェット
-># （テーマ・タイトル・etc）
+>（テーマ・タイトル・etc）
 
 dart
 
@@ -56,6 +58,7 @@ dart
     appBar: AppBar(title: Text('Hello Flutter!')),
 
 # 画面上部のアプリバーを表示
+>タイトルにはText('Hello Flutter!')が表示
 
 dart
 
@@ -73,6 +76,7 @@ dart
   }
 
 }
-
+>ブロックを順に閉じる
+>>Scaffold,MaterialApp,build(),MyApp
 
 
