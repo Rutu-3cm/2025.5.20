@@ -80,3 +80,77 @@ dart
 >>Scaffold,MaterialApp,build(),MyApp
 
 
+
+
+# 複雑な値の利用
+# ※自分が必要だと思った所以外省いています
+class Data {
+
+  int _price;
+
+  String _name;
+
+  Data(this._name, this._price) : super();
+
+  @override
+
+  String toString() {
+
+    return _name + ':' + _price.toString() + '円';
+
+  }
+
+}
+
+>このクラスは「名前＋価格」という情報のセットを表現
+
+>プライベート変数 _name（名前）と _price（価格）を持つ
+
+>>toString() をオーバーライド>>例：
+>>`「Apple:200円」`のような形式で出力
+
+ void _setData() {
+
+    setState(() {
+
+      _item = (_data..shuffle()).first;
+
+    });
+
+  }
+
+ @override
+
+  Widget build(BuildContext context) {
+
+    return Scaffold(
+
+      appBar: AppBar(title: Text('Set data')),
+
+      body: Text(_item.toString(), style: TextStyle(fontSize: 32.0)),
+
+      floatingActionButton: FloatingActionButton(
+
+        onPressed: _setData,
+
+        tooltip: 'set message.',
+
+        child: Icon(Icons.star),
+
+      ),
+
+    );
+
+  }
+
+>`FloatingActionButton`（右下の丸いボタン）を押すと `_setData()` が実行され、内容が変わる
+
+
+
+
+
+
+
+
+
+
