@@ -7,83 +7,68 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Generated App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        primaryColor: const Color(0xff2196f3),
-        canvasColor: const Color(0xfffafafa),
-      ),
-      home: FirstScreen(),
-    );
+    return MaterialApp(home: TaskScreen());
   }
 }
 
-// １つ目のスクリーン
-class FirstScreen extends StatelessWidget {
+class TaskScreen extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Home')),
-      body: Center(
-        child: Container(
-          child: const Text(
-            'Home Screen',
-            style: const TextStyle(fontSize: 32.0),
-          ),
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 1,
-        items: <BottomNavigationBarItem>[
-          const BottomNavigationBarItem(
-            label: 'Home',
-            icon: const Icon(Icons.home, size: 32),
-          ),
-          const BottomNavigationBarItem(
-            label: 'next',
-            icon: const Icon(Icons.navigate_next, size: 32),
-          ),
-        ],
-        onTap: (int value) {
-          if (value == 1)
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => SecondScreen()),
-            );
-        },
-      ),
-    );
-  }
+  _TaskScreenState createState() => _TaskScreenState();
 }
 
-// ２つ目のスクリーン
-class SecondScreen extends StatelessWidget {
+class _TaskScreenState extends State<TaskScreen> {
+  final List<Map<String, dynamic>> _tasks = [];
+  final TextEditingController _controller = TextEditingController();
+
+  void _addTask() {
+    if (_controller.text.isNotEmpty) {
+      setState(() {
+        _tasks.add({'title': _controller.text, 'completed': false});
+        _controller.clear();
+      });
+    }
+  }
+
+  void _toggleTask(int index) {
+    setState(() {
+      _tasks[index]['completed'] = !_tasks[index]['completed'];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Next")),
-      body: Center(
-        child: const Text(
-          'Next Screen',
-          style: const TextStyle(fontSize: 32.0),
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
-        items: <BottomNavigationBarItem>[
-          const BottomNavigationBarItem(
-            label: 'prev',
-            icon: const Icon(Icons.navigate_before, size: 32),
+      appBar: AppBar(title: Text('タスク管理')),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              controller: _controller,
+              decoration: InputDecoration(labelText: '新しいタスクを入力'),
+            ),
           ),
-          const BottomNavigationBarItem(
-            label: '?',
-            icon: const Icon(Icons.android, size: 32),
+          Expanded(
+            child: ListView.builder(
+              itemCount: _tasks.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  leading: Checkbox(
+                    value: _tasks[index]['completed'],
+                    onChanged: (value) {
+                      _toggleTask(index);
+                    },
+                  ),
+                  title: Text(_tasks[index]['title']),
+                );
+              },
+            ),
           ),
         ],
-        onTap: (int value) {
-          if (value == 0) Navigator.pop(context);
-        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _addTask,
+        child: Icon(Icons.add),
       ),
     );
   }
