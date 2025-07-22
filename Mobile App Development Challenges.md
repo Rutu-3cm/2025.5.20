@@ -278,3 +278,79 @@ class _TaskScreenState extends State<TaskScreen> {
     );
   }
 }
+
+〇flutterスタジオ・・・ブラウザ上でflutterのUIを作れる
+
+TextStyle・・・テキストのスタイルを指定するためのクラス  
+>文字のサイズ(int型で受け取る：`32.0`等)  
+>フォント  
+>文字の太さ(Fontwait.w100  
+　　　　　Fontwaitw.900  
+　　　　　Fontwait.normal  
+　　　　　Fontwait.bold)
+
+Color・・・色を指定するクラス(TextStyle以外でも使用)
+Color(0x00000000)：(0xARGB)  
+16進数で各値が指定  
+Color(0xffff0304)：Color.fromARGB(255,255,3,4)  
+　　　　↖　同じ色が出力　↗
+
+
+Center・・・Childで指定したWidgetを上下中央揃えで表示  
+Container・・・Centerよりも細かく位置の調整をする場合に使用  
+>Edgelnsets・・・周囲の余白幅を設定するためのクラス  
+>Alignment・・・配置場所を設置するためのクラス  
+>>topLeft = 左上  
+ topCenter = 中央上  
+ topRight = 右上  
+ centerLeft = 左中央  
+ center = 中央  
+ centerRight = 右中央  
+ bottomLeft = 左下  
+ bottomCenter = 中央下  
+ bottomRight = 右下
+
+Colimn・・・複数のウィジェットを横に並べて表示  
+
+```c
+Column(
+    mainAxisAlignment: MainAxisAlignment.start,
+    mainAxisSize: MainAxisSize.max,
+    rossAxisAlignment: CrossAxisAlignment.center,
+    Children: <Widget>[
+      Text(One),
+      Text(Two),
+      Text(Three)
+    ]
+),
+```
+　　↓  
+>App Name  
+One  
+Two  
+Three
+
+
+
+
+上下の位置(mainAxisAlignment:MainAxisAlignment.start,)  
+左右の位置(crossAxisAlignment:CrossAxisAlignment.center,)
+
+Columnでは上下、 Rowでは左右  
+上から`start`,`center`,`end`
+
+
+showDiallog・・・一時的にdialogを表示するメゾッド
+>dialogとは・・・ユーザーとの対話を促すためのポップアップウィンドウです。確認メッセージや選択肢の提示、入力フォームなど、さまざまな用途に使われる　　
+>>主なdialog  
+AlertDialog = アラート表示(確認・警告・通知) `タイトル・本文・ボタンを表示可能`  
+SimpleDialog = 選択肢の提示 `複数の選択肢を縦に並べて表示`  
+Dialog = カスタムUIの表示`任意のWidgetを配置可能`  
+CupertionAlertDialog = iOS風のダイアログ`iOSスタイルのデザイン`  
+アロー関数　無名関数を簡単に書くことができる記法  
+条件　　　　　　　　　　　　　書き方例  
+引数が１つ　　　　　　　　x => x*x  
+引数が複数　　　　　　　　(a,b) => a + b  
+処理が１文（式のみ）     x => x*2  
+処理が複数文            { const y = x*2,;return y; }
+オブジェクトを返す　　   () => ({ name:"Taro",age:25})
