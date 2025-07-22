@@ -343,7 +343,7 @@ Columnでは上下、 Rowでは左右
 showDiallog・・・一時的にdialogを表示するメゾッド
 >dialogとは・・・ユーザーとの対話を促すためのポップアップウィンドウです。確認メッセージや選択肢の提示、入力フォームなど、さまざまな用途に使われる　　
 >>主なdialog  
-AlertDialog = アラート表示(確認・警告・通知) `タイトル・本文・ボタンを表示可能`  
+AlertDialog = アラート表示(確認・警告・通知)`タイトル・本文・ボタンを表示可能`  
 SimpleDialog = 選択肢の提示 `複数の選択肢を縦に並べて表示`  
 Dialog = カスタムUIの表示`任意のWidgetを配置可能`  
 CupertionAlertDialog = iOS風のダイアログ`iOSスタイルのデザイン`  
