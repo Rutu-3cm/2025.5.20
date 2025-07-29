@@ -367,3 +367,5 @@ CupertionAlertDialog = iOS風のダイアログ`iOSスタイルのデザイン`
 
     Navigator.pushNamed(context,'/second')   
 
+    
+
