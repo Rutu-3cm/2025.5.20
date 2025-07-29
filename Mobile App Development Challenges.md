@@ -368,26 +368,26 @@ CupertionAlertDialog = iOS風のダイアログ`iOSスタイルのデザイン`
     Navigator.pushNamed(context,'/second')   
 
 # 画面表示  
-> TabBar   Tabの一覧を表示するウィジェット  
+> TabBar =  Tabの一覧を表示するウィジェット  
 例  
   TabBar(  
     controller: タブコントローラー、  
     tabs: Tabの配列,  
   ),
 
->Tab       ひとつひとつのタブ   
+>Tab   =    ひとつひとつのタブ   
 例  
   Tab(text: '表示される文字')  
 
->TabBarView  Tabの一覧を表示するウィジェット  
+>TabBarView = Tabの一覧を表示するウィジェット  
 例  
   TabBarView(
    controller: タブコントローラー,  
    children: タブに対応したウィジェットの配列,  
   ),  
 
->TabController  TabBarとTabBarViewを連携させるための仕組み  
+>TabController = TabBarとTabBarViewを連携させるための仕組み  
 
->Drawer  `≡`アイコンのように画面外からリストが表示されるようなUI　　
+>Drawer = `≡`アイコンのように画面外からリストが表示されるようなUI　　
 
  
