@@ -354,3 +354,16 @@ CupertionAlertDialog = iOS風のダイアログ`iOSスタイルのデザイン`
 処理が１文（式のみ）     x => x*2  
 処理が複数文            { const y = x*2,;return y; }
 オブジェクトを返す　　   () => ({ name:"Taro",age:25})
+  
+# LIFO式で、画面遷移を実現するための機能  
+アドレスを事前に決めておくことで、毎回Routeクラスを書かないために設定値
+>>例  
+    initialRote:'/',  
+    routes:{  
+      '/':(countext) => FirstScreen(),  
+      '/second'(context) => SecondScreen('Second'),
+      '/third':(context) => SecondScreen('Third'),   
+    },  
+
+    Navigator.pushNamed(context,'/second')   
+
